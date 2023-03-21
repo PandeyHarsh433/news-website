@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
-import Card from "../../components/card/Card";
-import Pagination from "../../components/Pagination";
-import { paginate } from "./../../utils/paginate";
+import Card from "./../components/card/Card";
+import Pagination from "./../components/Pagination";
+import { paginate } from "./../utils/paginate";
 import useSWR from "swr";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { useRouter } from "next/router";
