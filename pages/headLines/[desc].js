@@ -22,7 +22,7 @@ export async function getServerSideProps(context) {
   const { desc } = params;
   const queryParam = `q=${desc}&`;
   const response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&${queryParam}apiKey=8785ff8aa1774d0a8c89fc57a72d51fd`
+    `https://newsapi.org/v2/top-headlines?country=us&${queryParam}apiKey=${process.env.API_KEY}`
   );
   const data = await response.json();
   const article = data.articles[0]; // Extract the first article from the array

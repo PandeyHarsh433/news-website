@@ -14,7 +14,7 @@ const fetcher = async (category = "") => {
   }
   let response = [];
   response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&${url}apiKey=8785ff8aa1774d0a8c89fc57a72d51fd`
+    `https://newsapi.org/v2/top-headlines?country=us&${url}apiKey=${process.env.API_KEY}`
   );
 
   const medium = await response.json();
