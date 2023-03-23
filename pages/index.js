@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./../components/card/Card";
 import Pagination from "./../components/Pagination";
 import { paginate } from "./../utils/paginate";
@@ -7,18 +7,19 @@ import useSWR from "swr";
 import { Typeahead } from "react-bootstrap-typeahead";
 import { useRouter } from "next/router";
 
-const fetcher = async (category = "") => {
-  let url = "";
+const fetcher = async (category = "all") => {
+  let url = "&";
   if (category != "all") {
-    url = `category=${category}&`;
+    url = `&category=${category}&`;
   }
   let response = [];
   response = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&${url}apiKey=${process.env.API_KEY}`
+    `https://newsapi.org/v2/top-headlines?country=us${url}apiKey=${process.env.API_KEY}`
   );
 
   const medium = await response.json();
   const data = medium.articles;
+  console.log(data);
   return data;
 };
 
@@ -30,7 +31,10 @@ const HeadLines = () => {
   const [filterdData, setFilterdData] = useState([]);
   const router = useRouter();
 
-  const { data, error } = useSWR(selectedOption || "all", fetcher);
+  const { data, error } = useSWR(selectedOption || "all", fetcher, {
+    revalidateOnFocus: false,
+    revalidateOnMount: true,
+  });
 
   if (error) return "An error has occurred.";
   if (!data) return "Loading...";

@@ -81,9 +81,9 @@
     text-align: left;
   }
 }
-@media (max-width:320px) {
+@media (max-width: 320px) {
   .card {
-    width:23rem;
+    width: 23rem;
     margin-left: 1rem;
   }
   .searchContainer {
@@ -95,73 +95,100 @@
     margin-left: 2rem;
   }
 }
-.typeahead-margin {
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-@media(min-width:375px) {
-    .searchContainer {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-    .card {
-      margin:1rem 1rem;
-    }
-    .paginationNav {
-      margin-left: 1rem;
-    }
-}
-@media(min-width:768px) {
-  .paginationNav {
-    margin-left: 13rem;
-  }
+/* HeadLines component */
+
+.headContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-@media(min-width:1024px) {
-  .headContainer {
-    margin-left: 5rem;
-    margin-right: 25%;
-  }
-  .searchContainer {
-    margin-right: 7%;
-  }
-}
-
-@media(min-width:1440px) {
-  .headContainer {
-    margin-left: 20%;
-  }
-  .searchContainer {
-    margin-right: 3%;
-  }
-}
-.radio-buttons-container label {
-  margin-left: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-}
-.radio-buttons-container label input {
-  margin-right: 0.3rem;
-  cursor: pointer;
-}
-.radio-buttons-container label:nth-child(5) {
-  margin-left: 0rem;
-}
-.radio-buttons-container button {
-  background-color: rgb(54, 54, 54);
-  color: rgb(171, 167, 167);
-  border-radius: 5px;
-  border: none;
-  padding: 7px 19px;
-  margin-left: 41%;
-  margin-top: 1rem;
-}
-.searchContainer button{
-  background-color: rgb(54, 54, 54);
-  color: rgb(171, 167, 167);
-  border-radius: 5px;
-  border: none;
-  padding: 5px 15px;
-  margin-left: 40%;
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   margin-bottom: 2rem;
+}
+
+.typeahead-margin {
+  margin-right: 1rem;
+}
+
+.radio-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.radio-buttons-container label {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.radio-buttons-container input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.radio-buttons-container button,
+.searchContainer button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.radio-buttons-container button:hover {
+  background-color: #0062cc;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.radio-buttons-container label {
+  margin-right: 20px;
+}
+
+.typeahead-margin {
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  /* For mobile devices */
+
+  .searchContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .typeahead-margin {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .radio-buttons-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .radio-buttons-container label {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
